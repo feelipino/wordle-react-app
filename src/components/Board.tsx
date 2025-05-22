@@ -9,7 +9,7 @@ interface BoardProps {
 }
 
 // Functional component for the Board
-const Board: React.FC<BoardProps> = ({ guesses, solutionWord }) => {
+const Board: React.FC<BoardProps> = ({ guesses, solutionWord, wordLength }) => { // wordLength adicionado aqui
     // Props test
     console.log('Board received guesses:', guesses);
     console.log('Board received solutionWord:', solutionWord);
@@ -20,7 +20,7 @@ const Board: React.FC<BoardProps> = ({ guesses, solutionWord }) => {
                 <Row
                     key={index}
                     guess={guess}
-                    wordLength={solutionWord.length}
+                    wordLength={wordLength}
                     // solutionWord={solutionWord}
                 />
             ))}

@@ -12,7 +12,6 @@ const Row: React.FC<RowProps> = ({ guess, wordLength }) => {
         <div className="row">
             {tiles.map((_, index) => {
                 const letter = guess[index] || '';
-                const tileClass = letter ? 'filled' : 'empty';
                 return(
                     <Tile key={index} letter={letter} />
                 );
