@@ -1,18 +1,16 @@
 import React from 'react';
 import Row from './Row';
+import type { TileStatus } from './Tile';
 
 // Props that the Board component will receive
 interface BoardProps {
     guesses: string[];
-    solutionWord: string;
     wordLength: number;
+    guessesStatus: TileStatus[][];
 }
 
 // Functional component for the Board
-const Board: React.FC<BoardProps> = ({ guesses, solutionWord, wordLength }) => { // wordLength adicionado aqui
-    // Props test
-    console.log('Board received guesses:', guesses);
-    console.log('Board received solutionWord:', solutionWord);
+const Board: React.FC<BoardProps> = ({ guesses, wordLength, guessesStatus }) => {
 
     return (
         <div className="board">
@@ -21,7 +19,7 @@ const Board: React.FC<BoardProps> = ({ guesses, solutionWord, wordLength }) => {
                     key={index}
                     guess={guess}
                     wordLength={wordLength}
-                    // solutionWord={solutionWord}
+                    statuses={guessesStatus[index]}
                 />
             ))}
         </div>
